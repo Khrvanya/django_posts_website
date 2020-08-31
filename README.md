@@ -1,2 +1,2 @@
 # posts_site
-Gjango posts' project
+Gjango project with posts
