@@ -1,0 +1,28 @@
+<!-- posts/templates/create.html -->
+{% load static %}
+
+<html>
+	<head>
+		<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400" rel="stylesheet">
+		<link href="{% static 'css/base.css' %}" rel="stylesheet">
+	</head>
+
+	<body>
+		<header>
+			<a href='{% url "core:logout-view" %}'>Logout</a>
+			<h2>Create new Post</h2><br>
+		</header>
+	
+	<div>
+		<form action="" method="POST" enctype="multipart/form-data">
+			{% csrf_token %}
+			<table>
+				{{ form.as_table }}
+			</table>
+			<input type="submit" name="create" value="Create">
+		</form>
+	</div>
+	
+	<a href='{% url "posts:posts-view" %}'>Back to all posts</a>
+	</body>
+</html>

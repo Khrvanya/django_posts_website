@@ -1,0 +1,43 @@
+<!-- posts/templates/posts.html -->
+{% extends "pagination.html" %}
+{% load static %}
+
+{% block content %}
+<html>
+	<head>
+		<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400" rel="stylesheet">
+		<link href="{% static 'css/base.css' %}" rel="stylesheet">
+	</head>
+  
+	<body>
+		<header>
+			<br><a href='{% url "core:logout-view" %}'>Logout</a>
+			<h2>Welcome, {{user.username}}</h2>
+			<a href="{% url 'posts:createpost-view' %}">Create new post</a>
+		</header>
+	
+		<div class="filter-form">
+			<form action="" method="get">
+				<h3>{{ filterset.form }} &nbsp;
+				<input type="submit" value="Filter posts" /></h3>
+			</form>
+		</div>
+	
+
+		<ul>
+			{% for object in object_list %}
+				<div class="post-entry">
+					<b><a href="{% url 'posts:post-view' object.pk %}">{{ object.title }}</a></b>
+					<div class="container">
+						{{ object.body }}
+					</div>
+				</div>
+			{% endfor %}
+
+		</ul>
+	
+	</body>
+<html>
+{% endblock %}
+
+

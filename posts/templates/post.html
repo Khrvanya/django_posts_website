@@ -1,0 +1,40 @@
+<!-- posts/templates/post.html -->
+{% load static %}
+
+<html>
+	<head>
+		<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400" rel="stylesheet">
+		<link href="{% static 'css/base.css' %}" rel="stylesheet">
+	</head>
+
+	
+	<body>
+		<div class="post-entry">
+			<header>
+				<a href='{% url "core:logout-view" %}'>Logout</a>
+				<h2>&nbsp; {{ post.title }}</h2><br>
+			</header>
+	
+			<h6>
+				author: &nbsp; &nbsp; {{ post.author }}<br>
+				date: &nbsp; &nbsp; {{ post.date }}<br>
+		
+				{% if not post.image == 'No image'%}
+					<br>image: &nbsp; &nbsp;  
+					<img src='{{ post.image.url }}' style="max-height:250px">
+				{% endif %}
+		
+			</h6>
+	
+  
+  
+			<div class="container">
+				{{ post.body }}
+			</div> 
+	
+		</div>
+		
+		<a href='{% url "posts:posts-view" %}'>Back to all posts</a>
+	</body>
+</html>
+

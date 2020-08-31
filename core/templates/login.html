@@ -1,0 +1,22 @@
+<!-- core/templates/login.html -->
+
+<html>
+	<body>
+		<header>
+			<h2>Login form</h2><br>
+		</header>
+		<div>
+			<form action="" method="POST">
+				{% csrf_token %}
+				<table>
+					{{ form }}
+				</table>
+				<div>
+					<h4>{{ error }}</h4>
+					<input type="submit" name="login" value="Login" />
+				</div>
+			</form>
+		<a href='{% url "core:base-view" %}'>Back</a>
+		</div>
+  </body>
+</html>

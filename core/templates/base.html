@@ -1,0 +1,20 @@
+<!-- core/templates/base.html -->
+{% load static %}
+
+<html>
+  <head>
+	<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400" rel="stylesheet">
+    <link href="{% static 'css/base.css' %}" rel="stylesheet">
+  </head>
+  <body>
+    <header>
+      <h1>Django posts</h1><br>
+    </header>
+		<div>
+			<a href='{% url "core:register-view" %}'>Sign in</a><br>
+			<a href='{% url "core:login-view" %}'>Log in</a>
+		</div>
+  </body>
+</html>
+
+
