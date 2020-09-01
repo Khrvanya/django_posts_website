@@ -39,10 +39,12 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'cloudinary_storage',
     'django.contrib.staticfiles',
     'core',
     'posts',
     'posts.templatetags',
+    'cloudinary',
 ]
 
 MIDDLEWARE = [
@@ -125,11 +127,8 @@ USE_TZ = False
 MEDIA_URL = '/media/'
 
 # Path where media is stored
-MEDIA_ROOT = os.path.join(BASE_DIR, 'mediafiles')
-MEDIAFILES_DIRS = [os.path.join(BASE_DIR, 'media')]
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-# from django.core.files.storage import default_storage
-# MEDIA_STORAGE = default_storage
 
 # Heroku: Update database configuration from $DATABASE_URL.
 import dj_database_url
@@ -154,3 +153,11 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
 ALLOWED_HOSTS = ['django-posts-website.herokuapp.com','127.0.0.1']
+
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'hnfjmbqy9',
+    'API_KEY': '295966427818592',
+    'API_SECRET': '4rmlPm3lwSiJrnOgOs4iHGWplkg',
+}
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
