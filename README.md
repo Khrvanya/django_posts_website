@@ -1,2 +1,2 @@
 # posts_site
-Gjango project with posts
+Local Posts website written in Django
