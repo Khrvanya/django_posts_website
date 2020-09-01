@@ -127,8 +127,8 @@ MEDIA_URL = '/media/'
 # Path where media is stored
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
-SERVE_MEDIA_FILES = True
-
+from django.core.files.storage import default_storage
+MEDIA_STORAGE = default_storage
 
 # Heroku: Update database configuration from $DATABASE_URL.
 import dj_database_url
