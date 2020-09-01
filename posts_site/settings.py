@@ -123,7 +123,6 @@ USE_TZ = False
 
 # Base url to serve media files
 MEDIA_URL = '/media/'
-STATIC_URL = '/static/'
 
 # Path where media is stored
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
@@ -135,13 +134,13 @@ db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
 
 
-
+STATIC_URL = 'https://khrvanya-static.s3.us-east-2.amazonaws.com/static/'
 AWS_ACCESS_KEY_ID = 'AKIA2RGPFSONSYO7QHVF'
 AWS_SECRET_ACCESS_KEY = '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'
 
 # DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-AWS_STORAGE_BUCKET_NAME = 'khrvanya-static'
-AWS_S3_REGION_NAME = 'us-east-2'
+#AWS_STORAGE_BUCKET_NAME = 'khrvanya-static'
+#AWS_S3_REGION_NAME = 'us-east-2'
 
 
 
@@ -152,7 +151,7 @@ AWS_S3_OBJECT_PARAMETERS = {
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'posts_site/static'),
 ]
-STATIC_URL = 'https://khrvanya-static.s3.us-east-2.amazonaws.com/static/'
+
 STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 
