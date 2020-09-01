@@ -140,7 +140,7 @@ AWS_ACCESS_KEY_ID = 'AKIA2RGPFSONSYO7QHVF'
 AWS_SECRET_ACCESS_KEY = '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'
 
 # DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-AWS_STORAGE_BUCKET_NAME = 'khrvanya-assets'
+AWS_STORAGE_BUCKET_NAME = 'khrvanya-static'
 AWS_S3_REGION_NAME = 'us-east-2'
 
 
@@ -152,7 +152,7 @@ AWS_S3_OBJECT_PARAMETERS = {
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'posts_site/static'),
 ]
-STATIC_URL = 'https://s3.console.aws.amazon.com/s3/buckets/khrvanya-static/static/'
+STATIC_URL = 'http://s3.amazonaws.com/khrvanya-static/static'
 STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 
