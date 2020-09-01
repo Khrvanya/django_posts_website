@@ -167,3 +167,7 @@ if not DEBUG:
     AWS_STORAGE_BUCKET_NAME = 'khrvanya-assets'
     AWS_HEADERS = {'Cache-Control': 'max-age=86400',}
     AWS_QUERYSTRING_AUTH = False
+    
+    AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+    AWS_LOCATION = 'static'
+    STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
