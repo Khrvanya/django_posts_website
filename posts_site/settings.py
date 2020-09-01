@@ -43,11 +43,11 @@ INSTALLED_APPS = [
     'core',
     'posts',
     'posts.templatetags',
+    'storages', 
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -122,10 +122,10 @@ USE_TZ = False
 
 
 # Base url to serve media files
-MEDIA_URL = '/media/'
+#MEDIA_URL = '/media/'
 
 # Path where media is stored
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+#MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 
 # Heroku: Update database configuration from $DATABASE_URL.
@@ -134,17 +134,21 @@ db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.10/howto/static-files/
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'posts_site/static'),
+]
 
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+AWS_ACCESS_KEY_ID = 'AKIA2RGPFSONSYO7QHVF'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'khrvanya-assets'
+AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
 
-# The absolute path to the directory where collectstatic will collect static files for deployment.
-#STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+AWS_S3_OBJECT_PARAMETERS = {
+    'CacheControl': 'max-age=86400',
+}
 
-# The URL to use when referring to static files (where they will be served from)
-STATIC_URL = '/static/'
+AWS_LOCATION = 'static'
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+STATIC_URL = "https://%s/%s/" % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
 
-# Simplified static file serving.
-# https://warehouse.python.org/project/whitenoise/
-#STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+DEFAULT_FILE_STORAGE = 'mysite.storage_backends.MediaStorage'
