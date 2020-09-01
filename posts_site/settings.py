@@ -28,7 +28,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', ')ob@y5(4$doyhp#j5i7vl5m3t=3x$w
 # DEBUG = True
 DEBUG = bool(os.environ.get('DJANGO_DEBUG', True))
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['django-posts-website.herokuapp.com','127.0.0.1']
 AUTH_USER_MODEL = 'core.User'
 
 # Application definition
@@ -125,7 +125,7 @@ USE_TZ = False
 MEDIA_URL = '/media/'
 
 # Path where media is stored
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 
 # Heroku: Update database configuration from $DATABASE_URL.
@@ -148,6 +148,3 @@ STATIC_URL = '/static/'
 # Simplified static file serving.
 # https://warehouse.python.org/project/whitenoise/
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
-
-ALLOWED_HOSTS = ['django-posts-website.herokuapp.com','127.0.0.1']
