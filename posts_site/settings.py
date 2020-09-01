@@ -125,10 +125,11 @@ USE_TZ = False
 MEDIA_URL = '/media/'
 
 # Path where media is stored
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'mediafiles')
+MEDIAFILES_DIRS = [os.path.join(BASE_DIR, 'media')]
 
-from django.core.files.storage import default_storage
-MEDIA_STORAGE = default_storage
+# from django.core.files.storage import default_storage
+# MEDIA_STORAGE = default_storage
 
 # Heroku: Update database configuration from $DATABASE_URL.
 import dj_database_url
