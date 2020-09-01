@@ -135,20 +135,35 @@ DATABASES['default'].update(db_from_env)
 
 
 
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'posts_site/static'),
-]
+#STATICFILES_DIRS = [
+#    os.path.join(BASE_DIR, 'posts_site/static'),
+#]
 
-AWS_ACCESS_KEY_ID = 'AKIA2RGPFSONSYO7QHVF'
-AWS_SECRET_ACCESS_KEY = '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'
-AWS_STORAGE_BUCKET_NAME = 'khrvanya-assets'
-AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
-AWS_S3_OBJECT_PARAMETERS = {
-    'CacheControl': 'max-age=86400',
-}
-AWS_LOCATION = 'static'
+#AWS_ACCESS_KEY_ID = 'AKIA2RGPFSONSYO7QHVF'
+#AWS_SECRET_ACCESS_KEY = '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'
+#AWS_STORAGE_BUCKET_NAME = 'khrvanya-assets'
+#AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+#AWS_S3_OBJECT_PARAMETERS = {
+#    'CacheControl': 'max-age=86400',
+#}
+#AWS_LOCATION = 'static'
 
-STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
+#STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
 
-DEFAULT_FILE_STORAGE = 'posts_site.s3utils.MediaRootS3BotoStorage'
-STATICFILES_STORAGE = 'posts_site.s3utils.StaticRootS3BotoStorage'
+#DEFAULT_FILE_STORAGE = 'posts_site.s3utils.MediaRootS3BotoStorage'
+#STATICFILES_STORAGE = 'posts_site.s3utils.StaticRootS3BotoStorage'
+
+
+
+
+STATICFILES_LOCATION = 'static'
+MEDIAFILES_LOCATION = 'media'
+
+if not DEBUG:
+    STATICFILES_STORAGE = 'PROJECT_NAME.custom_storages.StaticStorage'
+    DEFAULT_FILE_STORAGE = 'PROJECT_NAME.custom_storages.MediaStorage'
+    AWS_ACCESS_KEY_ID = 'AKIA2RGPFSONSYO7QHVF'
+    AWS_SECRET_ACCESS_KEY = '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'
+    AWS_STORAGE_BUCKET_NAME = 'khrvanya-assets'
+    AWS_HEADERS = {'Cache-Control': 'max-age=86400',}
+    AWS_QUERYSTRING_AUTH = False
