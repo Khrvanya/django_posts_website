@@ -16,8 +16,15 @@ my_notes.txt
 .ipynb_checkpoints
 __pycache__
 
+# env
 .idea
 conda-env
+
+# Text backup files
+*.bak
+
+# Database
+*.sqlite3
 
 # Executables
 *.swf
