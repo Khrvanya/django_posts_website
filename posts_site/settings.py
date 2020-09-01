@@ -134,7 +134,7 @@ db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
 
 
-STATIC_URL = 'https://khrvanya-static.s3.us-east-2.amazonaws.com/static/'
+
 AWS_ACCESS_KEY_ID = 'AKIA2RGPFSONSYO7QHVF'
 AWS_SECRET_ACCESS_KEY = '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'
 
@@ -152,6 +152,7 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'posts_site/static'),
 ]
 
+STATIC_URL = 'https://khrvanya-static.s3.us-east-2.amazonaws.com/static/'
 STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 
