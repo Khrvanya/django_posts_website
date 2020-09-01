@@ -25,8 +25,8 @@ import os
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', ')ob@y5(4$doyhp#j5i7vl5m3t=3x$w-jv*lx=uu8%jjs@o#k7t')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-#DEBUG = bool(os.environ.get('DJANGO_DEBUG', True))
+#DEBUG = True
+DEBUG = bool(os.environ.get('DJANGO_DEBUG', True))
 
 ALLOWED_HOSTS = ['django-posts-website.herokuapp.com','127.0.0.1']
 AUTH_USER_MODEL = 'core.User'
