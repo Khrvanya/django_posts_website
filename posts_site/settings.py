@@ -152,7 +152,7 @@ AWS_S3_OBJECT_PARAMETERS = {
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'posts_site/static'),
 ]
-STATIC_URL = 'http://s3.amazonaws.com/khrvanya-static/static/'
+STATIC_URL = 'https://s3.console.aws.amazon.com/s3/buckets/khrvanya-static/static/'
 STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
 
