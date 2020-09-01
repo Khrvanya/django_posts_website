@@ -149,7 +149,7 @@ STATIC_URL = '/static/'
 
 # Simplified static file serving.
 # https://warehouse.python.org/project/whitenoise/
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+#STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
 ALLOWED_HOSTS = ['django-posts-website.herokuapp.com','127.0.0.1']
@@ -160,4 +160,4 @@ CLOUDINARY_STORAGE = {
     'API_KEY': '295966427818592',
     'API_SECRET': '4rmlPm3lwSiJrnOgOs4iHGWplkg',
 }
-#DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+STATICFILES_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
