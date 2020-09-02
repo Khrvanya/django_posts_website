@@ -123,18 +123,6 @@ USE_TZ = False
 
 
 
-AWS_ACCESS_KEY_ID = 'AKIA2RGPFSONQXGLH7NW'
-AWS_SECRET_ACCESS_KEY = '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'
-AWS_STORAGE_BUCKET_NAME = 'khrvanya-static'
-AWS_QUERYSTRING_AUTH=False
-
-DEFAULT_FILE_STORAGE = 'posts.utils.MediaRootS3BotoStorage'
-
-MEDIA_URL = '//khrvanya-static.s3.us-east-2.amazonaws.com/media/'
-MEDIA_ROOT = MEDIA_URL
-
-
-
 # Heroku: Update database configuration from $DATABASE_URL.
 import dj_database_url
 db_from_env = dj_database_url.config(conn_max_age=500)
@@ -151,3 +139,13 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'posts_site/static')]
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
+
+AWS_ACCESS_KEY_ID = 'AKIA2RGPFSONQXGLH7NW'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'khrvanya-static'
+AWS_QUERYSTRING_AUTH=False
+
+DEFAULT_FILE_STORAGE = 'posts.utils.MediaRootS3BotoStorage'
+
+MEDIA_URL = '//khrvanya-static.s3.us-east-2.amazonaws.com/media/'
+MEDIA_ROOT = MEDIA_URL
