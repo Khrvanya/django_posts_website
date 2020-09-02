@@ -132,7 +132,6 @@ DATABASES['default'].update(db_from_env)
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'posts_site/staticfiles')
-# STATICFILES_DIRS = [os.path.join(BASE_DIR, 'posts_site/static')]
 
 # Simplified static file serving.
 # https://warehouse.python.org/project/whitenoise/
