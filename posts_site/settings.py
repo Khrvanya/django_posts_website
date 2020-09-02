@@ -132,6 +132,7 @@ AWS_ACCESS_KEY_ID = 'AKIA2RGPFSONQXGLH7NW'
 AWS_SECRET_ACCESS_KEY = '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'
 DEFAULT_FILE_STORAGE = 'posts_site.aws.utils.MediaRootS3BotoStorage'
 AWS_STORAGE_BUCKET_NAME = 'khrvanya-static'
+AWS_QUERYSTRING_AUTH=False
 
 MEDIA_URL = '//khrvanya-static.s3.us-east-2.amazonaws.com/media/'
 MEDIA_ROOT = MEDIA_URL
