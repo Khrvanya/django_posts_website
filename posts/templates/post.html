@@ -19,9 +19,6 @@
 				author: &nbsp; &nbsp; {{ post.author }}<br>
 				date: &nbsp; &nbsp; {{ post.date }}<br>
 				
-				{{ post.image.url }}
-				{{ post.image}}
-				
 				{% if not post.image == 'No image'%}
 					<br>image: &nbsp; &nbsp;  
 					<img src='{{ post.image.url }}' style="max-height:250px">

@@ -122,26 +122,24 @@ USE_L10N = True
 USE_TZ = False
 
 
-# Base url to serve media files
-#MEDIA_URL = '/media/'
-
-# Path where media is stored
-#MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 AWS_ACCESS_KEY_ID = 'AKIA2RGPFSONQXGLH7NW'
 AWS_SECRET_ACCESS_KEY = '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'
-DEFAULT_FILE_STORAGE = 'posts_site.aws.utils.MediaRootS3BotoStorage'
 AWS_STORAGE_BUCKET_NAME = 'khrvanya-static'
 AWS_QUERYSTRING_AUTH=False
 
+DEFAULT_FILE_STORAGE = 'posts_site.aws.utils.MediaRootS3BotoStorage'
+
 MEDIA_URL = '//khrvanya-static.s3.us-east-2.amazonaws.com/media/'
 MEDIA_ROOT = MEDIA_URL
+
 
 
 # Heroku: Update database configuration from $DATABASE_URL.
 import dj_database_url
 db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
+
 
 
 STATIC_URL = '/static/'
